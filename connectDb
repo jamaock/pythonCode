@@ -1,0 +1,29 @@
+#引入基本包
+#!/usr/bin/python
+import MySQLdb
+
+#链接数据库
+ip = "127.0.0.1"
+port = 3306
+dbName = "dbName"
+user ="user"
+pwd = "pwd"
+db = MySQLdb.connect(ip,user,pwd,dbName,port)
+
+#基本query（含数据使用步骤）
+querySql = "select * from test limit 1";
+cursor = db.cursor()
+
+#基本insert/update
+updateSql = "update test set data_time = '2016-04-25 11:24:35' limit 1";
+cursor = db.cursor()
+results = cursor.fetchall()
+
+try:
+  cursor.execute(updateSql)
+  db.commit()
+except:
+  db.rollback()
+  print "update %s"%updateSql
+
+db.close()
