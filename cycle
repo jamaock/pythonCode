@@ -1,0 +1,13 @@
+#无限循环
+count = 1
+while count:
+  #end-flag
+  if i == 0:
+    count = 0
+    
+    
+
+#无限循环
+per = 500
+startIndex = 0
+endIndex = 0
